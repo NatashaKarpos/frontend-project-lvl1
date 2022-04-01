@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
-import { questionToUser } from '../src/cli-even.js';
+import { questionToUser, isEven } from '../src/cli-even.js';
+import startGame from '../src/index.js';
 
-questionToUser();
+startGame(
+  'Answer "yes" if the number is even, otherwise answer "no".',
+  questionToUser,
+  isEven,
+);
