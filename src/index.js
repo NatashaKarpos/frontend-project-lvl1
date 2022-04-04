@@ -18,6 +18,7 @@ const startGame = (condition, game, checkAnswer) => {
 
     if (userAnswer === rigthAnswer) {
       console.log('Correct!');
+
       counter += 1;
       if (counter === 3) {
         console.log(`Congratulations, ${userName}!`);
