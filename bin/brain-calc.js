@@ -1,10 +1,5 @@
 #!/usr/bin/env node
 
-import { calc, calculateAnswer } from '../src/cli-calc.js';
-import startGame from '../src/index.js';
+import startCalcGame from '../games/cli-calc.js';
 
-startGame(
-  'What is the result of the expression?',
-  calc,
-  calculateAnswer,
-);
+startCalcGame();
