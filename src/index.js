@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 
 const askUserName = () => readlineSync.question('May I have your name? ');
 
-const startGame = (condition, game, checkAnswer) => {
+const startGame = (condition, game, checkAnswer, answerIsNum = true) => {
   // greeting
   const userName = askUserName();
   console.log(`Hello, ${userName}!`);
@@ -25,7 +25,7 @@ const startGame = (condition, game, checkAnswer) => {
         result = false;
       }
     } else {
-      if (typeof userAnswer === 'string') {
+      if (!answerIsNum) {
         console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${rigthAnswer}".`);
       } else {
         console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rigthAnswer}.`);

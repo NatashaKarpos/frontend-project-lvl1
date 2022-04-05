@@ -6,24 +6,32 @@
 <h1>frontend-project-lvl1 - console games</h1>
 
 <h3>Installation</h3>
+
 `make publish`
 
 <h2>Games</h2>
 
 <h3>brain-even</h3>
 to start a game type in the console: 
-`brain-even`
+
+```javascript
+brain-even
+```
 
 [![asciicast](https://asciinema.org/a/FMnQiAbN6VLPVjNbrKLMmkxEb.svg)](https://asciinema.org/a/FMnQiAbN6VLPVjNbrKLMmkxEb)
 
 <h3>brain-calc</h3>
 to start a game type in the console: 
-`brain-calc`
+
+```javascript
+brain-calc
+```
 
 [![asciicast](https://asciinema.org/a/riVD5VrzedHtnQNBw9Cc2oYcp.svg)](https://asciinema.org/a/riVD5VrzedHtnQNBw9Cc2oYcp)
 
 <h3>brain-gcd</h3>
 > to start a game type in the console: 
+
 ```javascript
 brain-gcd
 ```
@@ -32,7 +40,10 @@ brain-gcd
 
 <h3>brain-progression</h3>
 to start a game type in the console: 
-`brain-progression`
+
+```javascript
+brain-progression
+```
 
 [![asciicast](https://asciinema.org/a/HjsktWH6RjYaAFEdxl28Avitp.svg)](https://asciinema.org/a/HjsktWH6RjYaAFEdxl28Avitp)
 
