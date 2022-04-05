@@ -25,7 +25,11 @@ const startGame = (condition, game, checkAnswer) => {
         result = false;
       }
     } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rigthAnswer}.`);
+      if (typeof userAnswer === 'string') {
+        console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${rigthAnswer}".`);
+      } else {
+        console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rigthAnswer}.`);
+      }
       console.log(`Let's try again, ${userName}!`);
       result = false;
     }

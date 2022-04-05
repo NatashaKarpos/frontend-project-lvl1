@@ -6,25 +6,19 @@
 <h1>frontend-project-lvl1 - console games</h1>
 
 <h3>Installation</h3>
-```javascript
-make publish
-```
+`make publish`
 
 <h2>Games</h2>
 
 <h3>brain-even</h3>
-> to start a game type in the console: 
-```javascript
-brain-even
-```
+to start a game type in the console: 
+`brain-even`
 
 [![asciicast](https://asciinema.org/a/FMnQiAbN6VLPVjNbrKLMmkxEb.svg)](https://asciinema.org/a/FMnQiAbN6VLPVjNbrKLMmkxEb)
 
 <h3>brain-calc</h3>
-> to start a game type in the console: 
-```javascript
-brain-calc
-```
+to start a game type in the console: 
+`brain-calc`
 
 [![asciicast](https://asciinema.org/a/riVD5VrzedHtnQNBw9Cc2oYcp.svg)](https://asciinema.org/a/riVD5VrzedHtnQNBw9Cc2oYcp)
 
@@ -37,17 +31,13 @@ brain-gcd
 [![asciicast](https://asciinema.org/a/D2lYRbX2st442mvYVr7GdB02W.svg)](https://asciinema.org/a/D2lYRbX2st442mvYVr7GdB02W)
 
 <h3>brain-progression</h3>
-> to start a game type in the console: 
-```javascript
-brain-progression
-```
+to start a game type in the console: 
+`brain-progression`
 
 [![asciicast](https://asciinema.org/a/HjsktWH6RjYaAFEdxl28Avitp.svg)](https://asciinema.org/a/HjsktWH6RjYaAFEdxl28Avitp)
 
 <h3>brain-prime</h3>
 > to start a game type in the console: 
-```javascript
-brain-prime
-```
+`brain-prime`
 
 [![asciicast](https://asciinema.org/a/6iXvexqbRmF3Vsn3n3qT9GVCB.svg)](https://asciinema.org/a/6iXvexqbRmF3Vsn3n3qT9GVCB)
