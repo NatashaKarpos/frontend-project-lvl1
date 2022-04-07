@@ -10,7 +10,7 @@ const generateNumbers = () => {
 
 const findDivisors = (num) => {
   const divisors = [];
-  for (let i = 2; i <= num / 2; i += 1) {
+  for (let i = 2; i <= num; i += 1) {
     if (num % i === 0) {
       divisors.push(i);
     }
@@ -20,6 +20,7 @@ const findDivisors = (num) => {
 
 const findGreatesDivisor = (stringOfNumbers) => {
   const [num1, num2] = stringOfNumbers.split(' ');
+
   const numOneDivisors = findDivisors(num1);
   const numTwoDivisors = findDivisors(num2);
 
