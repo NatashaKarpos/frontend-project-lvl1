@@ -1,8 +1,9 @@
-import startGame from '../src/index.js';
+import startGame from '../index.js';
+import generateRandomNumber from '../utils.js';
 
 const generateNumbers = () => {
-  const FirstRandomNumber = (Math.floor(Math.random() * (100 - 2) + 2));
-  const SecondRandomNumber = (Math.floor(Math.random() * (100 - 2) + 2));
+  const FirstRandomNumber = generateRandomNumber(100, 2);
+  const SecondRandomNumber = generateRandomNumber(100, 2);
 
   return `${FirstRandomNumber} ${SecondRandomNumber}`;
 };
@@ -37,9 +38,11 @@ const findGreatesDivisor = (stringOfNumbers) => {
   return `${commonDivisor}`;
 };
 
+const gameCondition = 'Find the greatest common divisor of given numbers.';
+
 const startGcdGame = () => {
   startGame(
-    'Find the greatest common divisor of given numbers.',
+    gameCondition,
     generateNumbers,
     findGreatesDivisor,
   );

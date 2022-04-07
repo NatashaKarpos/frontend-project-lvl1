@@ -1,9 +1,13 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/NatashaKarpos/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/NatashaKarpos/frontend-project-lvl1/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0ecd36fb42a4bd2ef27c/maintainability)](https://codeclimate.com/github/NatashaKarpos/frontend-project-lvl1/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
 ![github-actions-test](https://github.com/NatashaKarpos/frontend-project-lvl1/actions/workflows/github-actions-test.yml/badge.svg)
 
 <h1>frontend-project-lvl1 - console games</h1>
+
+Brain Games is a set of five console games. Each game asks a question and you have to give the correct answer.
+If you answer correctly three times, you win!
 
 <h3>Installation</h3>
 

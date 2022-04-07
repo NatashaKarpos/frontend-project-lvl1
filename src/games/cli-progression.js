@@ -1,9 +1,10 @@
-import startGame from '../src/index.js';
+import startGame from '../index.js';
+import generateRandomNumber from '../utils.js';
 
 const generateProgression = () => {
-  const progressionStartNumber = (Math.floor(Math.random() * (20 - 1) + 1));
-  const step = (Math.floor(Math.random() * (10 - 2) + 2));
-  const randomPosition = (Math.floor(Math.random() * (9 - 0) + 0));
+  const progressionStartNumber = generateRandomNumber(20, 1);
+  const step = generateRandomNumber(10, 2);
+  const randomPosition = generateRandomNumber(9, 0);
 
   let progression = '';
   let nextNumber = progressionStartNumber;
@@ -33,9 +34,11 @@ const showRigthAnswer = (stringOfProgression) => {
   return `${siblingNumber + step}`;
 };
 
+const gameCondition = 'What number is missing in the progression?';
+
 const startProgressionGame = () => {
   startGame(
-    'What number is missing in the progression?',
+    gameCondition,
     generateProgression,
     showRigthAnswer,
   );

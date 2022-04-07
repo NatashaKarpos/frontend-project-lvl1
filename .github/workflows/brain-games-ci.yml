@@ -1,8 +1,9 @@
-name: github-actions-test
+name: Brain-Games-CI
 
 on:
   push:
-    branches: [ main ]
+    branches: 
+      - '**'
 
 jobs:
   build:

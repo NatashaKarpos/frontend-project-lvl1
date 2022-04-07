@@ -1,4 +1,5 @@
-import startGame from '../src/index.js';
+import startGame from '../index.js';
+import generateRandomNumber from '../utils.js';
 
 const calculateAnswer = (str) => {
   const [num1, operator, num2] = str.split(' ');
@@ -22,17 +23,19 @@ const calculateAnswer = (str) => {
 };
 
 const calc = () => {
-  const FirstRandomNumber = (Math.floor(Math.random() * (30 - 1) + 1));
-  const SecondRandomNumber = (Math.floor(Math.random() * (30 - 1) + 1));
-  const randomIndex = (Math.floor(Math.random() * (3 - 0) + 0));
+  const FirstRandomNumber = generateRandomNumber(30, 1);
+  const SecondRandomNumber = generateRandomNumber(30, 1);
+  const randomIndex = generateRandomNumber(3, 0);
   const operator = ['+', '-', '*'][randomIndex];
 
   return `${FirstRandomNumber} ${operator} ${SecondRandomNumber}`;
 };
 
+const gameCondition = 'What is the result of the expression?';
+
 const startCalcGame = () => {
   startGame(
-    'What is the result of the expression?',
+    gameCondition,
     calc,
     calculateAnswer,
   );
