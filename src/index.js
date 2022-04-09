@@ -1,39 +1,35 @@
 import readlineSync from 'readline-sync';
 
-const askUserName = () => readlineSync.question('May I have your name? ');
+const isCorrectAnswer = (userAnswer, rigthAnswer) => {
+  if (typeof rigthAnswer === 'string') {
+    return userAnswer === rigthAnswer.slice(1, -1);
+  }
+  return +userAnswer === rigthAnswer;
+};
 
-const startGame = (condition, game, checkAnswer, answerIsNum = true) => {
-  // greeting
-  const userName = askUserName();
+const startGame = (condition, generateRound) => {
+  const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log(condition);
-  let result = true;
-  let counter = 0;
 
-  do {
-    const question = game();
-    console.log(`Question: ${question}`);
+  const numberOfRounds = 3;
+
+  for (let i = 0; i < numberOfRounds; i += 1) {
+    const dataForRound = generateRound();
+    const [question, rightAnswer] = dataForRound;
+
+    console.log(question);
     const userAnswer = readlineSync.question('Your answer: ');
-    const rigthAnswer = checkAnswer(question);
 
-    if (userAnswer === rigthAnswer) {
+    if (isCorrectAnswer(userAnswer, rightAnswer)) {
       console.log('Correct!');
-
-      counter += 1;
-      if (counter === 3) {
-        console.log(`Congratulations, ${userName}!`);
-        result = false;
-      }
     } else {
-      if (!answerIsNum) {
-        console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${rigthAnswer}".`);
-      } else {
-        console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rigthAnswer}.`);
-      }
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
       console.log(`Let's try again, ${userName}!`);
-      result = false;
+      return;
     }
-  } while (result);
+  }
+  console.log(`Congratulations, ${userName}!`);
 };
 
 export default startGame;
