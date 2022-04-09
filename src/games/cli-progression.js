@@ -1,5 +1,5 @@
 import startGame from '../index.js';
-import generateRandomNumber from '../utils.js';
+import { generateRandomNumber, generateDataForGame } from '../utils.js';
 
 const gameCondition = 'What number is missing in the progression?';
 
@@ -37,12 +37,7 @@ const showRigthAnswer = (stringOfProgression) => {
   return siblingDigit + step;
 };
 
-const generateRound = () => {
-  const progression = generateProgression();
-  const question = `Question: ${progression}`;
-  const correctAnswer = showRigthAnswer(progression);
-  return [question, correctAnswer];
-};
+const generateRound = () => generateDataForGame(generateProgression, showRigthAnswer);
 
 const startProgressionGame = () => {
   startGame(

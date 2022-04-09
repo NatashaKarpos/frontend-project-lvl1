@@ -1,5 +1,5 @@
 import startGame from '../index.js';
-import generateRandomNumber from '../utils.js';
+import { generateRandomNumber, generateDataForGame } from '../utils.js';
 
 const gameCondition = 'What is the result of the expression?';
 
@@ -32,12 +32,7 @@ const solveExpression = (exp) => {
   return result;
 };
 
-const generateRound = () => {
-  const expression = generateExpression();
-  const question = `Question: ${expression}`;
-  const correctAnswer = solveExpression(expression);
-  return [question, correctAnswer];
-};
+const generateRound = () => generateDataForGame(generateExpression, solveExpression);
 
 const startCalcGame = () => {
   startGame(
