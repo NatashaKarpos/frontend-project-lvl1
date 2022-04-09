@@ -14,7 +14,6 @@ const generateExpression = () => {
 const solveExpression = (exp) => {
   const [num1, operator, num2] = exp.split(' ');
   let result = 0;
-  console.log(operator);
   switch (operator) {
     case '+':
       result = +num1 + +num2;
