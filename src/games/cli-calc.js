@@ -1,18 +1,17 @@
 import startGame from '../index.js';
-import { generateRandomNumber, generateDataForGame } from '../utils.js';
+import generateRandomNumber from '../utils.js';
 
 const gameCondition = 'What is the result of the expression?';
 
-const generateExpression = () => {
-  const firstRandomNumber = generateRandomNumber(30, 1);
-  const secondRandomNumber = generateRandomNumber(30, 1);
-  const randomIndex = generateRandomNumber(2, 0);
+const generateDataForQuestion = () => {
+  const firstRandomNumber = generateRandomNumber(1, 30);
+  const secondRandomNumber = generateRandomNumber(1, 30);
+  const randomIndex = generateRandomNumber(0, 2);
   const operator = ['+', '-', '*'][randomIndex];
-  return `${firstRandomNumber} ${operator} ${secondRandomNumber}`;
+  return [firstRandomNumber, secondRandomNumber, operator];
 };
 
-const solveExpression = (exp) => {
-  const [num1, operator, num2] = exp.split(' ');
+const solveExpression = (num1, num2, operator) => {
   let result = 0;
   switch (operator) {
     case '+':
@@ -27,11 +26,16 @@ const solveExpression = (exp) => {
     default:
       throw new Error(`Unknown operator: '${operator}'!`);
   }
-
-  return result;
+  return `${result}`;
 };
 
-const generateRound = () => generateDataForGame(generateExpression, solveExpression);
+const generateRound = () => {
+  const [num1, num2, operator] = generateDataForQuestion();
+  const expression = `${num1} ${operator} ${num2}`;
+  const answer = solveExpression(num1, num2, operator);
+
+  return [expression, answer];
+};
 
 const startCalcGame = () => {
   startGame(

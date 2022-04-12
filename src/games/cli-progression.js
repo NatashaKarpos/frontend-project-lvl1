@@ -1,43 +1,39 @@
 import startGame from '../index.js';
-import { generateRandomNumber, generateDataForGame } from '../utils.js';
+import generateRandomNumber from '../utils.js';
 
 const gameCondition = 'What number is missing in the progression?';
 
 const generateProgression = () => {
-  const progressionStartNumber = generateRandomNumber(20, 1);
-  const step = generateRandomNumber(10, 2);
-  const randomPosition = generateRandomNumber(9, 0);
+  const progressionStartNumber = generateRandomNumber(1, 20);
+  const step = generateRandomNumber(2, 10);
   const progressionLength = 10;
-
-  let progression = '';
   let digit = progressionStartNumber;
+  const progression = [];
   for (let i = 0; i < progressionLength; i += 1) {
-    if (i === randomPosition) {
-      progression += '.. ';
-    } else {
-      progression += `${digit} `;
-    }
+    progression.push(digit);
     digit += step;
   }
   return progression;
 };
 
-const showRigthAnswer = (stringOfProgression) => {
-  const arrayOfProgression = stringOfProgression.trim().split(' ');
-  const indexOfHiddenDigit = arrayOfProgression.indexOf('..');
-  const position = indexOfHiddenDigit > 5 ? 3 : 7;
-  const step = arrayOfProgression[position] - arrayOfProgression[position - 1];
-
-  let siblingDigit = 0;
-  if (indexOfHiddenDigit === 0) {
-    siblingDigit = +arrayOfProgression[indexOfHiddenDigit + 1];
-    return siblingDigit - step;
-  }
-  siblingDigit = +arrayOfProgression[indexOfHiddenDigit - 1];
-  return siblingDigit + step;
+const hideElem = (array, index) => {
+  const firstPart = array.slice(0, index);
+  const secontPart = array.slice(index + 1);
+  return [...firstPart, '..', ...secontPart];
 };
 
-const generateRound = () => generateDataForGame(generateProgression, showRigthAnswer);
+const createProgressionForGame = () => {
+  const progession = generateProgression();
+  const hiddenIndex = generateRandomNumber(0, 9);
+  const hiddenDigit = `${progession[hiddenIndex]}`;
+  const updateArr = hideElem(progession, hiddenIndex);
+  return [updateArr.join(' '), hiddenDigit];
+};
+
+const generateRound = () => {
+  const [expression, answer] = createProgressionForGame();
+  return [expression, answer];
+};
 
 const startProgressionGame = () => {
   startGame(
