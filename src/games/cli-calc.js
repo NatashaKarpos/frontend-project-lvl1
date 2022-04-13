@@ -3,30 +3,29 @@ import generateRandomNumber from '../utils.js';
 
 const gameCondition = 'What is the result of the expression?';
 
+const minValue = 1;
+const maxValue = 30;
+const operators = ['+', '-', '*'];
+
 const generateDataForQuestion = () => {
-  const firstRandomNumber = generateRandomNumber(1, 30);
-  const secondRandomNumber = generateRandomNumber(1, 30);
-  const randomIndex = generateRandomNumber(0, 2);
-  const operator = ['+', '-', '*'][randomIndex];
+  const firstRandomNumber = generateRandomNumber(minValue, maxValue);
+  const secondRandomNumber = generateRandomNumber(minValue, maxValue);
+  const randomIndex = generateRandomNumber(0, operators.length - 1);
+  const operator = operators[randomIndex];
   return [firstRandomNumber, secondRandomNumber, operator];
 };
 
 const solveExpression = (num1, num2, operator) => {
-  let result = 0;
   switch (operator) {
     case '+':
-      result = +num1 + +num2;
-      break;
+      return num1 + num2;
     case '-':
-      result = +num1 - +num2;
-      break;
+      return num1 - num2;
     case '*':
-      result = +num1 * +num2;
-      break;
+      return num1 * num2;
     default:
       throw new Error(`Unknown operator: '${operator}'!`);
   }
-  return `${result}`;
 };
 
 const generateRound = () => {
@@ -34,7 +33,7 @@ const generateRound = () => {
   const expression = `${num1} ${operator} ${num2}`;
   const answer = solveExpression(num1, num2, operator);
 
-  return [expression, answer];
+  return [expression, String(answer)];
 };
 
 const startCalcGame = () => {

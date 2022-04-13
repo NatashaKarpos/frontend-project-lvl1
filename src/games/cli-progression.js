@@ -3,10 +3,15 @@ import generateRandomNumber from '../utils.js';
 
 const gameCondition = 'What number is missing in the progression?';
 
+const minStartValue = 1;
+const maxStartValue = 20;
+const minSteptValue = 2;
+const maxSteptValue = 10;
+const progressionLength = 10;
+
 const generateProgression = () => {
-  const progressionStartNumber = generateRandomNumber(1, 20);
-  const step = generateRandomNumber(2, 10);
-  const progressionLength = 10;
+  const progressionStartNumber = generateRandomNumber(minStartValue, maxStartValue);
+  const step = generateRandomNumber(minSteptValue, maxSteptValue);
   let digit = progressionStartNumber;
   const progression = [];
   for (let i = 0; i < progressionLength; i += 1) {
@@ -23,22 +28,17 @@ const hideElem = (array, index) => {
 };
 
 const createProgressionForGame = () => {
-  const progession = generateProgression();
-  const hiddenIndex = generateRandomNumber(0, 9);
-  const hiddenDigit = `${progession[hiddenIndex]}`;
-  const updateArr = hideElem(progession, hiddenIndex);
-  return [updateArr.join(' '), hiddenDigit];
-};
-
-const generateRound = () => {
-  const [expression, answer] = createProgressionForGame();
-  return [expression, answer];
+  const progession = generateProgression(progressionLength);
+  const hiddenIndex = generateRandomNumber(0, progressionLength - 1);
+  const hiddenDigit = progession[hiddenIndex];
+  const updateProgression = hideElem(progession, hiddenIndex);
+  return [updateProgression.join(' '), String(hiddenDigit)];
 };
 
 const startProgressionGame = () => {
   startGame(
     gameCondition,
-    generateRound,
+    createProgressionForGame,
   );
 };
 
